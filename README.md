@@ -11,6 +11,23 @@
 
 ---
 
+## 下载安装
+
+1. 打开 [Releases · latest](https://github.com/ne0-svg/tiborom-menubar/releases/latest)
+2. 下载 **`Tiborom-v1.0.0-universal.dmg`**（推荐，拖进 Applications）或 zip 版
+3. 首次打开被 Gatekeeper 拦属正常（ad-hoc 签名、未公证）：
+   系统设置 → 隐私与安全性 → 底部「仍要打开」
+
+校验：
+
+```bash
+shasum -a 256 Tiborom-v1.0.0-universal.dmg
+# 58b86c1cc36e8ca3fa6bd1910323b7e303a4dfa075827feaf856fad8ea28408a
+
+shasum -a 256 Tiborom-v1.0.0-universal.zip
+# 24fc2ea321776f4af8e5abf23549dfedf76d7460eefca474a740ff8131c52424
+```
+
 ## 和 Pamodoro 的关系
 
 - 功能基线 = Pamodoro v1.3.4：菜单栏倒计时、点开面板、点表盘开始/暂停/继续、
@@ -50,8 +67,8 @@
 环境：macOS 13+、Xcode Command Line Tools（不需要 Xcode 本体）。
 
 ```bash
-git clone <本仓库>
-cd tiborom
+git clone https://github.com/ne0-svg/tiborom-menubar.git
+cd tiborom-menubar
 ./run.sh            # 编译 + 启动，看屏幕右上角菜单栏
 ```
 
