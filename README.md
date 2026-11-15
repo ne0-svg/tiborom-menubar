@@ -14,18 +14,18 @@
 ## 下载安装
 
 1. 打开 [Releases · latest](https://github.com/ne0-svg/tiborom-menubar/releases/latest)
-2. 下载 **`Tiborom-v1.0.0-universal.dmg`**（推荐，拖进 Applications）或 zip 版
+2. 下载 **`Tiborom-v1.0.1-universal.dmg`**（推荐，拖进 Applications）或 zip 版
 3. 首次打开被 Gatekeeper 拦属正常（ad-hoc 签名、未公证）：
    系统设置 → 隐私与安全性 → 底部「仍要打开」
 
 校验：
 
 ```bash
-shasum -a 256 Tiborom-v1.0.0-universal.dmg
-# 58b86c1cc36e8ca3fa6bd1910323b7e303a4dfa075827feaf856fad8ea28408a
+shasum -a 256 Tiborom-v1.0.1-universal.dmg
+# 3e5315f315c93af9ce65acb7028f7e992cd80c5e668e9f02c7c547bab3172da8
 
-shasum -a 256 Tiborom-v1.0.0-universal.zip
-# 24fc2ea321776f4af8e5abf23549dfedf76d7460eefca474a740ff8131c52424
+shasum -a 256 Tiborom-v1.0.1-universal.zip
+# 515904949ba848454ceffbcd14a476653cda5f97e1884fdb155dc7a937dc6ab8
 ```
 
 ## 和 Pamodoro 的关系
@@ -42,6 +42,7 @@ shasum -a 256 Tiborom-v1.0.0-universal.zip
 ## 像素设计
 
 - **点阵字体**：`PixelFont` 内置 5×7 数字/冒号/小数点与 "Tiborom" 字母，
+  标题用 1.5pt/格（10.5pt 高）、单色下沉，像模压进塑料外壳的刻字；
   面板大数字、毫秒位、标题全部用它画方块，不依赖系统字体。
   中文说明文字仍用系统字体（整套 CJK 位图太重，不值当）。
 - **进度环**：28 个方块段，点亮段数 = 进度，不画圆弧。

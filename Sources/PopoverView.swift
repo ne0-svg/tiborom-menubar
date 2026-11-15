@@ -28,6 +28,10 @@ struct PopoverView: View {
     private var ink: Color { colorScheme == .dark ? Color(white: 0.92) : Color(white: 0.13) }
     private var paper: Color { colorScheme == .dark ? Color(white: 0.13) : Color(white: 0.97) }
 
+    /// 标题是模压进塑料外壳的那种字：单色、比底面深一档，没有任何描边或高光。
+    /// 浅色底上当作凹槽里的阴影，深色底上反过来提亮一档才看得见。
+    private var titleInk: Color { colorScheme == .dark ? Color(white: 0.34) : Color(white: 0.44) }
+
     var body: some View {
         VStack(spacing: 0) {
             header
@@ -115,7 +119,7 @@ struct PopoverView: View {
 
     private var header: some View {
         HStack(alignment: .center, spacing: 8) {
-            PixelText(text: "Tiborom", scale: 3, color: ink)
+            PixelText(text: "Tiborom", scale: 1.5, color: titleInk)
 
             statusLight
 

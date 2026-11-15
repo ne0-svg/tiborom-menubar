@@ -4,22 +4,27 @@ import AppKit
 import Foundation
 
 // S=蒂 G=叶 R=果身 D=暗部 W=高光 .=空
+//
+// 居中约束（改形状时保持）：
+// - 每行必须 16 字符，图形占 x2..x13，水平中心 7.5
+// - 内容占 row1..row14，垂直中心 7.5（上下各留一行空白）
+// - 把 W/D 归一成 R 后，每行必须左右对称
 let art: [String] = [
+    "................",
     ".......SS.......",
-    "......SSS.......",
-    "....GGGGGG......",
-    "...GGGGGGGG.....",
-    "..RRRRRRRRRR....",
-    ".RRWRRRRRRRRR...",
-    ".RWWRRRRRRRRR...",
-    ".RWRRRRRRRRRR...",
-    ".RRRRRRRRRRRR...",
-    ".RRRRRRRRRRRD...",
-    ".RRRRRRRRRRDD...",
-    "..RRRRRRRRRDD...",
-    "...RRRRRRRDD....",
-    "....RRRRRDD.....",
-    ".....RRRD.......",
+    "......SSSS......",
+    "....GGGGGGGG....",
+    "...GGGGGGGGGG...",
+    "..RRRRRRRRRRRR..",
+    "..WWRRRRRRRRRR..",
+    "..WWRRRRRRRRRR..",
+    "..RWRRRRRRRRRR..",
+    "..RRRRRRRRRRRR..",
+    "..RRRRRRRRRRRR..",
+    "...RRRRRRRRRD...",
+    "....RRRRRRDD....",
+    ".....RRRRDD.....",
+    ".......RR.......",
     "................",
 ]
 
