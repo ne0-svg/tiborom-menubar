@@ -14,18 +14,18 @@
 ## 下载安装
 
 1. 打开 [Releases · latest](https://github.com/ne0-svg/tiborom-menubar/releases/latest)
-2. 下载 **`Tiborom-v1.0.1-universal.dmg`**（推荐，拖进 Applications）或 zip 版
+2. 下载 **`Tiborom-v1.0.2-universal.dmg`**（推荐，拖进 Applications）或 zip 版
 3. 首次打开被 Gatekeeper 拦属正常（ad-hoc 签名、未公证）：
    系统设置 → 隐私与安全性 → 底部「仍要打开」
 
 校验：
 
 ```bash
-shasum -a 256 Tiborom-v1.0.1-universal.dmg
-# 3e5315f315c93af9ce65acb7028f7e992cd80c5e668e9f02c7c547bab3172da8
+shasum -a 256 Tiborom-v1.0.2-universal.dmg
+# d5b66080bb6936c939a19cf353b8fe137dd553f13c6934c76790a0fc4730971e
 
-shasum -a 256 Tiborom-v1.0.1-universal.zip
-# 515904949ba848454ceffbcd14a476653cda5f97e1884fdb155dc7a937dc6ab8
+shasum -a 256 Tiborom-v1.0.2-universal.zip
+# da836e506cde038a45e883a41b85728e7e31ab9f39d7cb532146a8290b1420a1
 ```
 
 ## 和 Pamodoro 的关系
@@ -51,7 +51,15 @@ shasum -a 256 Tiborom-v1.0.1-universal.zip
 - **控件**：2px 硬边 + 右下实心投影的像素按钮（按下下移 1px、投影收起）、
   方轨方滑块开关、像素步进器、虚线分隔。
 - **菜单栏**：9×9 像素番茄（计时）/ 像素咖啡杯（休息），模板图自动反色；
-  时间文字用系统等宽数字保持窄宽度（约 66pt）。
+  时间文字用系统等宽数字保持窄宽度。
+- **状态栏字号 = macOS 官方菜单栏字号**：`NSStatusBarButton` 默认字体实测是
+  `.AppleSystemUIFont` 13.0pt，天气、时钟等系统项都是这个尺寸，所以计时文字也用 13pt。
+  用等宽数字版本而不是 `systemFont`——官方字体数字是比例宽度（实测 `111:11` 比 `888:88`
+  窄 11.36pt），倒计时会左右抖。
+- **宽度启动时锁一次**：把最长取值 `180:00` 塞进去让 AppKit 排版，读它算出的宽度再锁死
+  （实测 85pt）。不能手算——`NSStatusBarButton` 的内边距随字号变化
+  （11.5pt 时 3.5pt，13pt 时 10pt），手算必漏。锁定后倒计时位数变化不会让 item 伸缩，
+  锚定其上的面板也不会左右跳。
 - **App 图标**：16×16 像素番茄，`Scripts/make-icon.swift` 最近邻放大生成全套 icns。
 
 ## 实测（M1，计数器差值法）
